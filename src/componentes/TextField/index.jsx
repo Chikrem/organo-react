@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import './TextField.css';
 
-const TextField = () => {
+const TextField = (props) => {
     return (
         <div className="campo-texto">
-            <label>Nome</label>
-            <input type="text" placeholder="Digite seu nome"/>
+            <label>{props.label}</label>
+            <input type="text" placeholder={props.placeholder}/>
         </div>
     )
 }
