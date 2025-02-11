@@ -1,17 +1,25 @@
+/* eslint-disable no-unused-vars */
 // Início Aula-1
 import './App.css'
 import Banner from './componentes/Banner';
 import Form from './componentes/Form';
+import { useState } from 'react';
 
 function App() {
 
-  // SusList recebe uma lista de usuários com informações de nome, idade e cidade; e um label para o botão de remoção.
- 
+  // Um useState que permite adicionar um componente recebido de Form.jsx e guardalo em um array
+  const [colaboradores, setColaboradores ] = useState([]);
+  
+  const aoNovoColaboradorAdicionado = (colaborador) => {
+    console.log(colaborador)
+    setColaboradores([...colaboradores, colaborador])
+    console.log(colaboradores)
+}
 
   return (
     <div className="App">
       <Banner />
-      <Form />
+      <Form aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}/>
     </div>
   )
 }

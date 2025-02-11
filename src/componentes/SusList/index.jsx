@@ -7,8 +7,7 @@ const SusList = (props) => {
     return(
         <div className='lista-suspensa'>
             <label>{props.label}</label>
-            <select>
-                {/* Renderizar uma lista iterando com map */}
+            <select onChange={evento => props.aoAlterado(evento.target.value)} required={props.obrigatorio} value={props.value}>
                 {props.itens.map(item => {
                     return <option key={item}>{item}</option>
                 })}
