@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import "./Form.css";
 import TextField from "./../TextField/index";
 import SusList from "./../SusList/index";
 import Button from "./../Button/index";
 import { useState } from "react";
 
-const Form = () => {
+const Form = (props) => {
   const times = [
     "Selecione",
     "Programação",
@@ -23,7 +24,8 @@ const Form = () => {
 
   const aoSalvar = (evento) => {
     evento.preventDefault();
-    console.log("Form Enviado =>", { nome, cargo, imagem, time });
+    // console.log("Form Enviado =>", { nome, cargo, imagem, time });
+    props.aoColaboradorCadastrado({ nome, cargo, imagem, time });
   };
 
   return (
