@@ -1,7 +1,20 @@
 import "./Form.css";
 import TextField from "./../TextField/index";
+import SusList from './../SusList/index';
+
 
 const Form = () => {
+
+  const times = [
+    'Programação',
+    'Front-end',
+    'Data Science',
+    'Devops',
+    'UX e Design',
+    'Mobile',
+    'Inovação e Gestão'
+  ]
+
   return (
     <section className="formulario">
       <form>
@@ -9,6 +22,7 @@ const Form = () => {
         <TextField label="Nome" placeholder="Digite seu nome" />
         <TextField label="Cargo" placeholder="Digite seu cargo" />
         <TextField label="Imagem" placeholder="Digite o endereço da imagem" />
+        <SusList label = "Time" itens = {times}/>
       </form>
     </section>
   );
