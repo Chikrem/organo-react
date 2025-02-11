@@ -1,12 +1,15 @@
 /* eslint-disable react/prop-types */
+import { useState } from 'react';
 import './TextField.css';
 
 const TextField = (props) => {
 
-    let valor = ''
+    // let valor = ''
+
+    const [valor, setValor] = useState('')
 
     const aoDigitado = (evento) => {
-        valor = evento.target.value
+        setValor(evento.target.value)
         console.log(evento.target.value)
     }
 
