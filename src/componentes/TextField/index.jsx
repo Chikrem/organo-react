@@ -1,24 +1,32 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
-import './TextField.css';
+import "./TextField.css";
 
 const TextField = (props) => {
-
+  
     // let valor = ''
 
-    const [valor, setValor] = useState('')
+  // O `useState` é um Hook do React que permite adicionar estado a componentes funcionais. Quando você 
+  // chama `useState`, ele retorna um array com dois elementos: o estado atual e uma função que permite 
+  // atualizá-lo.
 
-    const aoDigitado = (evento) => {
-        setValor(evento.target.value)
-        console.log(evento.target.value)
-    }
+//   const [valor, setValor] = useState("");
 
-    return (
-        <div className="campo-texto">
-            <label>{props.label}</label>
-            <input value={valor} onChange={aoDigitado} required={props.obrigatorio} type="text" placeholder={props.placeholder}/>
-        </div>
-    )
-}
+  const aoDigitado = (evento) => {
+    props.aoAlterado(evento.target.value);
+  };
+
+  return (
+    <div className="campo-texto">
+      <label>{props.label}</label>
+      <input
+        value={props.valor}
+        onChange={aoDigitado}
+        required={props.obrigatorio}
+        type="text"
+        placeholder={props.placeholder}
+      />
+    </div>
+  );
+};
 
 export default TextField;
