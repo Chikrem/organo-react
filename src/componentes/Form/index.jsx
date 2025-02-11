@@ -1,6 +1,7 @@
 import "./Form.css";
 import TextField from "./../TextField/index";
 import SusList from './../SusList/index';
+import Button from './../Button/index';
 
 
 const Form = () => {
@@ -23,6 +24,9 @@ const Form = () => {
         <TextField label="Cargo" placeholder="Digite seu cargo" />
         <TextField label="Imagem" placeholder="Digite o endereço da imagem" />
         <SusList label = "Time" itens = {times}/>
+        <Button>
+            Criar Card 
+        </Button>
       </form>
     </section>
   );
