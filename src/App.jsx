@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 // Início Aula-3
 
@@ -7,34 +8,86 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+=======
+/* eslint-disable react/jsx-no-undef */
+/* eslint-disable no-unused-vars */
+// Início Aula-1
+import "./App.css";
+import Banner from "./componentes/Banner";
+import Form from "./componentes/Form";
+import Team from "./componentes/Team";
+import { useState } from "react";
+>>>>>>> aula-4
 
 function App() {
-  const [count, setCount] = useState(0)
+  const times = [
+    {
+      nome: "Programação",
+      corPrimaria: "#57C278",
+      corSecundaria: "#D9F7E9",
+    },
+    {
+      nome: "Front-End",
+      corPrimaria: "#82CFFA",
+      corSecundaria: "#E8F8FF",
+    },
+    {
+      nome: "Data Science",
+      corPrimaria: "#A6D157",
+      corSecundaria: "#F0F8E2",
+    },
+    {
+      nome: "Devops",
+      corPrimaria: "#E06B69",
+      corSecundaria: "#FDE7E8",
+    },
+    {
+      nome: "UX e Design",
+      corPrimaria: "#D86EBF",
+      corSecundaria: "#FAE5F5",
+    },
+    {
+      nome: "Mobile",
+      corPrimaria: "#FEBA05",
+      corSecundaria: "#FFF5D9",
+    },
+    {
+      nome: "Inovação e Gestão",
+      corPrimaria: "#FF8A29",
+      corSecundaria: "#FFEEDF",
+    },
+  ];
+
+  // Um useState que permite adicionar um componente recebido de Form.jsx e guardalo em um array
+  const [colaboradores, setColaboradores] = useState([]);
+
+  const aoNovoColaboradorAdicionado = (colaborador) => {
+    console.log(colaborador);
+    setColaboradores([...colaboradores, colaborador]);
+    console.log(colaboradores);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      <Banner />
+      <Form
+        times={times.map((time) => time.nome)} // Mapear a lista de times e retornar apenas o nome para o formulario. O nome é necessário para o select de cargos
+        aoColaboradorCadastrado={(colaborador) =>
+          aoNovoColaboradorAdicionado(colaborador)
+        }
+      />
+      {/* Iterar lista de times com map e renderizar objetos recebendo o nome e duas cores */}
+      {times.map((time, index) => (
+        <Team
+          key={index}
+          nome={time.nome}
+          corPrimaria={time.corPrimaria}
+          corSecundaria={time.corSecundaria}
+          colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+        />
+      ))}
+    </div>
+  );
 }
 
-export default App
+export default App;
