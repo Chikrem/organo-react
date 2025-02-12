@@ -14,6 +14,7 @@ const Team = (props) => {
   };
 
   return (
+    props.colaboradores.length > 0 && // Se tiver colaboradores, renderiza o componente
     <section className="team" style={style}>
       <h3 style={styleH3}>{props.nome}</h3>
       <div className="colaboradores">

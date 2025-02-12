@@ -24,8 +24,10 @@ const Form = (props) => {
 
   const aoSalvar = (evento) => {
     evento.preventDefault();
-    // console.log("Form Enviado =>", { nome, cargo, imagem, time });
     props.aoColaboradorCadastrado({ nome, cargo, imagem, time });
+    setNome("");
+    setCargo("");
+    setImagem("");
   };
 
   return (
