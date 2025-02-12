@@ -66,7 +66,13 @@ function App() {
       />
       {/* Iterar lista de times com map e renderizar objetos recebendo o nome e duas cores */}
       {times.map((time, index) => (
-        <Team key={index} nome={time.nome} corPrimaria={time.corPrimaria} corSecundaria={time.corSecundaria} />
+        <Team
+          key={index}
+          nome={time.nome}
+          corPrimaria={time.corPrimaria}
+          corSecundaria={time.corSecundaria}
+          colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+        />
       ))}
     </div>
   );
