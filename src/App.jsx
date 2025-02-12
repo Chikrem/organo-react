@@ -1,23 +1,9 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-// Início Aula-3
-
->>>>>>> parent of a46a8fa (Início Aula-4)
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-=======
-/* eslint-disable react/jsx-no-undef */
-/* eslint-disable no-unused-vars */
-// Início Aula-1
+// Início Aula-5
 import "./App.css";
 import Banner from "./componentes/Banner";
 import Form from "./componentes/Form";
 import Team from "./componentes/Team";
 import { useState } from "react";
->>>>>>> aula-4
 
 function App() {
   const times = [
@@ -62,9 +48,9 @@ function App() {
   const [colaboradores, setColaboradores] = useState([]);
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
-    console.log(colaborador);
+    // console.log(colaborador);
     setColaboradores([...colaboradores, colaborador]);
-    console.log(colaboradores);
+    // console.log(colaboradores);
   };
 
   return (
