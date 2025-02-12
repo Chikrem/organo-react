@@ -6,16 +6,16 @@ import Button from "./../Button/index";
 import { useState } from "react";
 
 const Form = (props) => {
-  const times = [
-    "Selecione",
-    "Programação",
-    "Front-end",
-    "Data Science",
-    "Devops",
-    "UX e Design",
-    "Mobile",
-    "Inovação e Gestão",
-  ];
+  // const times = [
+  //   "Selecione",
+  //   "Programação",
+  //   "Front-end",
+  //   "Data Science",
+  //   "Devops",
+  //   "UX e Design",
+  //   "Mobile",
+  //   "Inovação e Gestão",
+  // ];
 
   const [nome, setNome] = useState("");
   const [cargo, setCargo] = useState("");
@@ -24,8 +24,10 @@ const Form = (props) => {
 
   const aoSalvar = (evento) => {
     evento.preventDefault();
-    // console.log("Form Enviado =>", { nome, cargo, imagem, time });
     props.aoColaboradorCadastrado({ nome, cargo, imagem, time });
+    setNome("");
+    setCargo("");
+    setImagem("");
   };
 
   return (
@@ -54,7 +56,7 @@ const Form = (props) => {
         <SusList
           obrigatorio={true}
           label="Time"
-          itens={times}
+          itens={props.times}
           valor={time}
           aoAlterado={(valor) => setTime(valor)}
         />
