@@ -59,6 +59,7 @@ function App() {
     <div className="App">
       <Banner />
       <Form
+        times={times.map((time) => time.nome)} // Mapear a lista de times e retornar apenas o nome para o formulario. O nome é necessário para o select de cargos
         aoColaboradorCadastrado={(colaborador) =>
           aoNovoColaboradorAdicionado(colaborador)
         }
