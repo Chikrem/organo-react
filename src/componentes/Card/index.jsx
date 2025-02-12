@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import "./Card.css";
 
-const Card = ({nome, cargo, imagem}) => {
+const Card = ({nome, cargo, imagem, corDeFundo}) => {
     return (<div className='colaborador'> 
-        <div className='cabecalho'>
+        <div className='cabecalho' style={{backgroundColor: corDeFundo}}>
             <img src={imagem} alt={nome}/>
         </div>
         <div className='rodape'>

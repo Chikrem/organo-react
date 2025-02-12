@@ -1,6 +1,4 @@
-/* eslint-disable react/jsx-no-undef */
-/* eslint-disable no-unused-vars */
-// Início Aula-1
+// Início Aula-5
 import "./App.css";
 import Banner from "./componentes/Banner";
 import Form from "./componentes/Form";
@@ -50,9 +48,9 @@ function App() {
   const [colaboradores, setColaboradores] = useState([]);
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
-    console.log(colaborador);
+    // console.log(colaborador);
     setColaboradores([...colaboradores, colaborador]);
-    console.log(colaboradores);
+    // console.log(colaboradores);
   };
 
   return (

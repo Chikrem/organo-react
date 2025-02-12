@@ -20,6 +20,7 @@ const Team = (props) => {
       <div className="colaboradores">
         {props.colaboradores.map((colaborador, index) => (
           <Card
+            corDeFundo={props.corPrimaria}
             key={index}
             nome={colaborador.nome}
             cargo={colaborador.cargo}
