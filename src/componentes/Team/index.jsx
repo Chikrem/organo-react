@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import Card from '../Card';
 import './Team.css'
 
 const Team = (props) => {
@@ -16,6 +17,8 @@ const Team = (props) => {
       <h3 style={styleH3}>
         {props.nome}
       </h3>
+      <Card />
+      <Card />
     </section>
   );
 };
