@@ -5,18 +5,12 @@ import Card from "../Card";
 import "./Team.css";
 
 const Team = (props) => {
-  const style = {
-    backgroundColor: props.corSecundaria,
-  };
-
-  const styleH3 = {
-    borderColor: props.corPrimaria,
-  };
 
   return (
     props.colaboradores.length > 0 && // Se tiver colaboradores, renderiza o componente
-    <section className="team" style={style}>
-      <h3 style={styleH3}>{props.nome}</h3>
+    <section className="team" style={{backgroundImage: 'url(../public/imagens/fundo.png)', backgroundColor: props.corSecundaria}}>
+      <input value={props.corPrimaria} type="color" className="input-cor"/>
+      <h3 style={{borderColor: props.corPrimaria}}>{props.nome}</h3>
       <div className="colaboradores">
         {props.colaboradores.map((colaborador, index) => {
           return (
