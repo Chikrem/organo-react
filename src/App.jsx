@@ -6,7 +6,7 @@ import Team from "./componentes/Team";
 import { useState } from "react";
 
 function App() {
-  const times = [
+  const timesInicial = [
     {
       nome: "Programação",
       corPrimaria: "#57C278",
@@ -43,8 +43,10 @@ function App() {
       corSecundaria: "#FFEEDF",
     },
   ];
+  
+  const [times, setTimes] = useState(timesInicial);
 
-  const inicial = [
+  const colabsInicial = [
     {
       nome: 'JULIANA AMOASEI',
       cargo: 'Desenvolvedora de software e instrutora',
@@ -192,7 +194,8 @@ function App() {
   ]
 
   // Um useState que permite adicionar um componente recebido de Form.jsx e guardalo em um array
-  const [colaboradores, setColaboradores] = useState(inicial);
+  const [colaboradores, setColaboradores] = useState(colabsInicial);
+
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
     // console.log(colaborador);
@@ -203,6 +206,15 @@ function App() {
   function deletarColab(){
     console.log("Deletando colaborador");
   }
+
+  function mudarCorDoTime(cor, nome){
+    setTimes(times.map(time => {
+      if(time.nome === nome){
+        time.corPrimaria = cor;
+      }
+      return time;
+    }));
+  } 
 
   return (
     <div className="App">
@@ -222,6 +234,7 @@ function App() {
           corSecundaria={time.corSecundaria}
           colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
           aoDeletar={deletarColab}
+          mudarCor={mudarCorDoTime}
         />
       ))}
     </div>

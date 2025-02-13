@@ -9,7 +9,7 @@ const Team = (props) => {
   return (
     props.colaboradores.length > 0 && // Se tiver colaboradores, renderiza o componente
     <section className="team" style={{backgroundImage: 'url(../public/imagens/fundo.png)', backgroundColor: props.corSecundaria}}>
-      <input value={props.corPrimaria} type="color" className="input-cor"/>
+      <input onChange={evento => props.mudarCor(evento.target.value, props.nome)} value={props.corPrimaria} type="color" className="input-cor"/>
       <h3 style={{borderColor: props.corPrimaria}}>{props.nome}</h3>
       <div className="colaboradores">
         {props.colaboradores.map((colaborador, index) => {
