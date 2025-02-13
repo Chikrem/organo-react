@@ -200,6 +200,10 @@ function App() {
     // console.log(colaboradores);
   };
 
+  function deletarColab(){
+    console.log("Deletando colaborador");
+  }
+
   return (
     <div className="App">
       <Banner />
@@ -217,6 +221,7 @@ function App() {
           corPrimaria={time.corPrimaria}
           corSecundaria={time.corSecundaria}
           colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
+          aoDeletar={deletarColab}
         />
       ))}
     </div>
