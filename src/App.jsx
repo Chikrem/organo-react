@@ -1,4 +1,4 @@
-// Início Aula-5
+// Início Curso-2
 import "./App.css";
 import Banner from "./componentes/Banner";
 import Form from "./componentes/Form";
