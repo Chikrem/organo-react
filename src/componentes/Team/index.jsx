@@ -18,15 +18,18 @@ const Team = (props) => {
     <section className="team" style={style}>
       <h3 style={styleH3}>{props.nome}</h3>
       <div className="colaboradores">
-        {props.colaboradores.map((colaborador, index) => (
-          <Card
-            corDeFundo={props.corPrimaria}
-            key={index}
-            nome={colaborador.nome}
-            cargo={colaborador.cargo}
-            imagem={colaborador.imagem}
-          />
-        ))}
+        {props.colaboradores.map((colaborador, index) => {
+          return (
+            <Card
+              corDeFundo={props.corPrimaria}
+              key={index}
+              nome={colaborador.nome}
+              cargo={colaborador.cargo}
+              imagem={colaborador.imagem}
+              aoDeletar={props.aoDeletar}
+            />
+          )
+        })}
       </div>
     </section>
   );
