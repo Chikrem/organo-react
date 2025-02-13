@@ -3,12 +3,14 @@
 /* eslint-disable react/prop-types */
 import Card from "../Card";
 import "./Team.css";
+import hexToRgba from "hex-to-rgba";
+// npm i hex-to-rgba
 
 const Team = (props) => {
 
   return (
     props.colaboradores.length > 0 && // Se tiver colaboradores, renderiza o componente
-    <section className="team" style={{backgroundImage: 'url(../public/imagens/fundo.png)', backgroundColor: props.corSecundaria}}>
+    <section className="team" style={{backgroundImage: 'url(../public/imagens/fundo.png)', backgroundColor: hexToRgba(props.corPrimaria, 0.6)}}>
       <input onChange={evento => props.mudarCor(evento.target.value, props.nome)} value={props.corPrimaria} type="color" className="input-cor"/>
       <h3 style={{borderColor: props.corPrimaria}}>{props.nome}</h3>
       <div className="colaboradores">
