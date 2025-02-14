@@ -6,29 +6,20 @@ import "./Team.css";
 import hexToRgba from "hex-to-rgba";
 // npm i hex-to-rgba
 
-const Team = (props) => {
-
+const Team = ({ time, colaboradores, aoDeletar, mudarCor }) => {
   return (
-    props.colaboradores.length > 0 && // Se tiver colaboradores, renderiza o componente
-    <section className="team" style={{backgroundImage: 'url(../public/imagens/fundo.png)', backgroundColor: hexToRgba(props.corPrimaria, 0.6)}}>
-      <input onChange={evento => props.mudarCor(evento.target.value, props.nome)} value={props.corPrimaria} type="color" className="input-cor"/>
-      <h3 style={{borderColor: props.corPrimaria}}>{props.nome}</h3>
-      <div className="colaboradores">
-        {props.colaboradores.map((colaborador, index) => {
-          return (
-            <Card
-              corDeFundo={props.corPrimaria}
-              key={index}
-              nome={colaborador.nome}
-              cargo={colaborador.cargo}
-              imagem={colaborador.imagem}
-              aoDeletar={props.aoDeletar}
-            />
-          )
-        })}
-      </div>
-    </section>
-  );
-};
+
+      colaboradores.length > 0 && <section className='team' style={{ backgroundImage: 'url(/imagens/fundo.png)', backgroundColor: hexToRgba(time.cor, '0.6') }}>
+          <input type='color' className='input-cor' value={time.cor} onChange={evento => {
+              mudarCor(evento.target.value, time.id);
+          }} />
+          <h3 style={{ borderColor: time.cor }}>{time.nome}</h3>
+          <div className='colaboradores'>
+              {colaboradores.map((colaborador, indice) => <Card key={indice} colaborador={colaborador} corDeFundo={time.cor} aoDeletar={aoDeletar} />)}
+          </div>
+      </section>
+
+  )
+}
 
 export default Team;
