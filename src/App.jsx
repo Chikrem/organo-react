@@ -51,6 +51,7 @@ function App() {
   const colabsInicial = [
     {
       id: uuidv4(),
+      favorito: false,
       nome: "JULIANA AMOASEI",
       cargo: "Desenvolvedora de software e instrutora",
       imagem:
@@ -59,6 +60,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "DANIEL ARTINE",
       cargo: "Engenheiro de Software na Stone Age",
       imagem:
@@ -67,6 +69,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "GUILHERME LIMA",
       cargo: "Desenvolvedor Python e JavaScript na Alura",
       imagem:
@@ -75,6 +78,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "PAULO SILVEIRA",
       cargo: "Hipster e CEO da Alura",
       imagem:
@@ -83,6 +87,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "JULIANA AMOASEI",
       cargo: "Desenvolvedora de software e instrutora",
       imagem:
@@ -91,6 +96,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "DANIEL ARTINE",
       cargo: "Engenheiro de Software na Stone Age",
       imagem:
@@ -99,6 +105,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "GUILHERME LIMA",
       cargo: "Desenvolvedor Python e JavaScript na Alura",
       imagem:
@@ -107,6 +114,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "PAULO SILVEIRA",
       cargo: "Hipster e CEO da Alura",
       imagem:
@@ -115,6 +123,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "JULIANA AMOASEI",
       cargo: "Desenvolvedora de software e instrutora",
       imagem:
@@ -123,6 +132,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "DANIEL ARTINE",
       cargo: "Engenheiro de Software na Stone Age",
       imagem:
@@ -131,6 +141,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "GUILHERME LIMA",
       cargo: "Desenvolvedor Python e JavaScript na Alura",
       imagem:
@@ -139,6 +150,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "PAULO SILVEIRA",
       cargo: "Hipster e CEO da Alura",
       imagem:
@@ -147,6 +159,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "JULIANA AMOASEI",
       cargo: "Desenvolvedora de software e instrutora",
       imagem:
@@ -155,6 +168,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "DANIEL ARTINE",
       cargo: "Engenheiro de Software na Stone Age",
       imagem:
@@ -163,6 +177,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "GUILHERME LIMA",
       cargo: "Desenvolvedor Python e JavaScript na Alura",
       imagem:
@@ -171,6 +186,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "PAULO SILVEIRA",
       cargo: "Hipster e CEO da Alura",
       imagem:
@@ -179,6 +195,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "JULIANA AMOASEI",
       cargo: "Desenvolvedora de software e instrutora",
       imagem:
@@ -187,6 +204,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "DANIEL ARTINE",
       cargo: "Engenheiro de Software na Stone Age",
       imagem:
@@ -195,6 +213,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "GUILHERME LIMA",
       cargo: "Desenvolvedor Python e JavaScript na Alura",
       imagem:
@@ -203,6 +222,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "PAULO SILVEIRA",
       cargo: "Hipster e CEO da Alura",
       imagem:
@@ -211,6 +231,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "JULIANA AMOASEI",
       cargo: "Desenvolvedora de software e instrutora",
       imagem:
@@ -219,6 +240,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "DANIEL ARTINE",
       cargo: "Engenheiro de Software na Stone Age",
       imagem:
@@ -227,6 +249,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "GUILHERME LIMA",
       cargo: "Desenvolvedor Python e JavaScript na Alura",
       imagem:
@@ -235,6 +258,7 @@ function App() {
     },
     {
       id: uuidv4(),
+      favorito: false,
       nome: "PAULO SILVEIRA",
       cargo: "Hipster e CEO da Alura",
       imagem:
@@ -245,12 +269,6 @@ function App() {
 
   // Um useState que permite adicionar um componente recebido de Form.jsx e guardalo em um array
   const [colaboradores, setColaboradores] = useState(colabsInicial);
-
-  // const aoNovoColaboradorAdicionado = (colaborador) => {
-  //   // console.log(colaborador);
-  //   setColaboradores([...colaboradores, colaborador]);
-  //   // console.log(colaboradores);
-  // };
 
   function deletarColaborador(id) {
     setColaboradores(
@@ -273,6 +291,17 @@ function App() {
     setTimes([...times, { ...novoTime, id: uuidv4() }]);
   }
 
+  function favoritarColaborador(id) {
+    setColaboradores(
+      colaboradores.map((colaborador) => {
+        if (colaborador.id === id) {
+          return { ...colaborador, favorito: !colaborador.favorito };
+        }
+        return colaborador;
+      })
+    );
+  }
+
   return (
     <div className="App">
       <Banner />
@@ -293,6 +322,7 @@ function App() {
             (colaborador) => colaborador.time === time.nome
           )}
           aoDeletar={deletarColaborador}
+          aoFavoritar={favoritarColaborador}
         />
         
       ))}
