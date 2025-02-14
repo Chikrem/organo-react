@@ -5,34 +5,29 @@ import SusList from "./../SusList/index";
 import Button from "./../Button/index";
 import { useState } from "react";
 
-const Form = (props) => {
-  // const times = [
-  //   "Selecione",
-  //   "Programação",
-  //   "Front-end",
-  //   "Data Science",
-  //   "Devops",
-  //   "UX e Design",
-  //   "Mobile",
-  //   "Inovação e Gestão",
-  // ];
+const Form = ({aoCadastrar, times, aoCriarTime}) => {
 
   const [nome, setNome] = useState("");
   const [cargo, setCargo] = useState("");
   const [imagem, setImagem] = useState("");
   const [time, setTime] = useState("");
+  const [nomeTime, setNomeTime] = useState("");
+  const [corTime, setCorTime] = useState("");
 
   const aoSalvar = (evento) => {
-    evento.preventDefault();
-    props.aoColaboradorCadastrado({ nome, cargo, imagem, time });
-    setNome("");
-    setCargo("");
-    setImagem("");
+    evento.preventDefault()
+    console.log('form enviado', nome, cargo, imagem, time )
+    aoCadastrar({
+        nome,
+        cargo,
+        imagem,
+        time
+    })
   };
 
   return (
-    <section className="formulario">
-      <form onSubmit={aoSalvar}>
+    <section className="formulario-container">
+      <form className="formulario" onSubmit={aoSalvar}>
         <h2>Preencha os dados do Card </h2>
         <TextField
           obrigatorio={true}
@@ -56,11 +51,33 @@ const Form = (props) => {
         <SusList
           obrigatorio={true}
           label="Time"
-          itens={props.times}
+          itens={times}
           valor={time}
           aoAlterado={(valor) => setTime(valor)}
         />
         <Button>Criar Card</Button>
+      </form>
+
+      <form className="formulario" onSubmit={(evento) => {
+                evento.preventDefault()
+                aoCriarTime({ nome: nomeTime, cor: corTime })
+            }}>
+        <h2>Preencha os dados para criar um novo Time</h2>
+        <TextField
+          obrigatorio
+          label="Nome"
+          placeholder="Digite o nome do time"
+          valor={nomeTime}
+          aoAlterado={(valor) => setNomeTime(valor)}
+        />
+        <TextField
+          obrigatorio
+          label="Cor HEX #FFFFFF"
+          placeholder="Digite a cor do time"
+          valor={corTime}
+          aoAlterado={(valor) => setCorTime(valor)}
+        />
+        <Button>Criar um novo time</Button>
       </form>
     </section>
   );

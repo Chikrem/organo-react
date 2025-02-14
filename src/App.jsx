@@ -245,11 +245,11 @@ function App() {
   // Um useState que permite adicionar um componente recebido de Form.jsx e guardalo em um array
   const [colaboradores, setColaboradores] = useState(colabsInicial);
 
-  const aoNovoColaboradorAdicionado = (colaborador) => {
-    // console.log(colaborador);
-    setColaboradores([...colaboradores, colaborador]);
-    // console.log(colaboradores);
-  };
+  // const aoNovoColaboradorAdicionado = (colaborador) => {
+  //   // console.log(colaborador);
+  //   setColaboradores([...colaboradores, colaborador]);
+  //   // console.log(colaboradores);
+  // };
 
   function deletarColaborador(id) {
     setColaboradores(
@@ -268,13 +268,18 @@ function App() {
     );
   }
 
+  function cadastrarTime(novoTime) {
+    setTimes([...times, { ...novoTime, id: uuidv4() }]);
+  }
+
   return (
     <div className="App">
       <Banner />
       <Form
-        times={times.map((time) => time.nome)} // Mapear a lista de times e retornar apenas o nome para o formulario. O nome é necessário para o select de cargos
-        aoColaboradorCadastrado={(colaborador) =>
-          aoNovoColaboradorAdicionado(colaborador)
+        aoCriarTime={cadastrarTime}
+        times={times.map((time) => time.nome)}
+        aoCadastrar={(colaborador) =>
+          setColaboradores([...colaboradores, colaborador])
         }
       />
       {/* Iterar lista de times com map e renderizar objetos recebendo o nome e duas cores */}
