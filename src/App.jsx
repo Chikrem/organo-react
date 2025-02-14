@@ -3,6 +3,7 @@ import "./App.css";
 import Banner from "./componentes/Banner";
 import Form from "./componentes/Form";
 import Team from "./componentes/Team";
+import Footer from "./componentes/Footer";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
@@ -293,7 +294,9 @@ function App() {
           )}
           aoDeletar={deletarColaborador}
         />
+        
       ))}
+      <Footer />
     </div>
   );
 }

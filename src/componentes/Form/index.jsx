@@ -71,12 +71,12 @@ const Form = ({aoCadastrar, times, aoCriarTime}) => {
           aoAlterado={(valor) => setNomeTime(valor)}
         />
         <TextField
-          obrigatorio
-          label="Cor HEX #FFFFFF"
-          placeholder="Digite a cor do time"
+          obrigatorio={true}
+          label='Cor'
+          type='color'
+          placeholder='Digite sua cor'
           valor={corTime}
-          aoAlterado={(valor) => setCorTime(valor)}
-        />
+          aoAlterado={valor => setCorTime(valor)}/>
         <Button>Criar um novo time</Button>
       </form>
     </section>
