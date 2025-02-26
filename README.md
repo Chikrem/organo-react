@@ -1,27 +1,24 @@
 # organo-react
 
-React: Desenvolvendo com JavaScript
+O Organo é aplicação desenvolvida no curso <a href="https://cursos.alura.com.br/course/react-desenvolvendo-javascript" target="_blank">React: desenvolvendo com JavaScript</a>. 
+Foi pensado e idealizado para ser o primeiro projeto em contato com o React.
 
-## Descrição
+<img src="screencapture.png" alt="Imagem do Organo" width="50%">
 
-Este projeto é uma aplicação React que permite a criação e visualização de cards de colaboradores, organizados por times. Cada time possui uma cor primária e secundária, e os colaboradores são adicionados através de um formulário.
 
-## Estrutura do Projeto
+## 🔨 Funcionalidades do projeto
 
-- `src/`: Contém o código-fonte da aplicação.
-  - `App.jsx`: Componente principal da aplicação.
-  - `componentes/`: Contém os componentes reutilizáveis da aplicação.
-    - `Banner/`: Componente de banner.
-    - `Button/`: Componente de botão.
-    - `Card/`: Componente de card de colaborador.
-    - `Form/`: Componente de formulário para adicionar colaboradores.
-    - `SusList/`: Componente de lista suspensa.
-    - `Team/`: Componente de time que agrupa os cards de colaboradores.
-    - `TextField/`: Componente de campo de texto.
-- `public/`: Contém os arquivos públicos, como imagens.
-- `index.html`: Arquivo HTML principal.
-- `package.json`: Arquivo de configuração do npm.
-- `vite.config.js`: Arquivo de configuração do Vite.
+Você pode passear <a href="https://cursos.alura.com.br/course/react-desenvolvendo-javascript" target="_blank">no figma</a> para entender a arte conceitual do projeto.
+
+## ✔️ Técnicas e tecnologias utilizadas
+
+Se liga nessa lista de tudo que usaremos nessa formação:
+
+- `React`
+- `React Hooks`
+- `TypeScript`
+
+E muito mais!
 
 ## Como Executar o Projeto:
 
