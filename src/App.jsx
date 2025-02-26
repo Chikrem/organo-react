@@ -304,7 +304,10 @@ function App() {
 
   return (
     <div className="App">
-      <Banner />
+      <Banner
+        endereçoImagem="https://raw.githubusercontent.com/Chikrem/organo-react/refs/heads/main/public/imagens/banner.png"
+        textoAlternativo="Banner Principal da Página"
+      />
       <Form
         aoCriarTime={cadastrarTime}
         times={times.map((time) => time.nome)}
@@ -324,7 +327,6 @@ function App() {
           aoDeletar={deletarColaborador}
           aoFavoritar={favoritarColaborador}
         />
-        
       ))}
       <Footer />
     </div>

@@ -1,12 +1,24 @@
-/* eslint-disable react/jsx-key */
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
+import { Colaborador } from "../../compartilhado/IColaborador";
+import { Time } from "../../compartilhado/ITime";
 import Card from "../Card";
 import "./Team.css";
 import hexToRgba from "hex-to-rgba";
-// npm i hex-to-rgba
 
-const Team = ({ time, colaboradores, aoDeletar, mudarCor, aoFavoritar }) => {
+interface TeamProps {
+  time: Time;
+  colaboradores: Colaborador[];
+  aoDeletar: (id: string) => void;
+  mudarCor: (cor: string, id: string) => void;
+  aoFavoritar: (id: string) => void;
+}
+
+const Team: React.FC<TeamProps> = ({
+  time,
+  colaboradores,
+  aoDeletar,
+  mudarCor,
+  aoFavoritar,
+}) => {
   return (
     colaboradores.length > 0 && (
       <section
@@ -26,9 +38,9 @@ const Team = ({ time, colaboradores, aoDeletar, mudarCor, aoFavoritar }) => {
         />
         <h3 style={{ borderColor: time.cor }}>{time.nome}</h3>
         <div className="colaboradores">
-          {colaboradores.map((colaborador, indice) => (
+          {colaboradores.map((colaborador) => (
             <Card
-              key={indice}
+              key={colaborador.id}
               colaborador={colaborador}
               corDeFundo={time.cor}
               aoDeletar={aoDeletar}
