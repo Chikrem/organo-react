@@ -23,10 +23,11 @@ const Card: React.FC<CardProps> = ({ colaborador, corDeFundo, aoDeletar, aoFavor
       <div className="cabecalho" style={{ backgroundColor: corDeFundo }}>
         <img src={colaborador.imagem} alt={colaborador.nome} />
       </div>
-      {/* Rodapé do card com nome, cargo e ícone de favoritar */}
+      {/* Rodapé do card com nome, cargo, data e ícone de favoritar */}
       <div className="rodape">
         <h4>{colaborador.nome}</h4>
         <h5>{colaborador.cargo}</h5>
+        {colaborador.data && <h5>Membro desde: {colaborador.data}</h5>}
         <div className="favoritar">
           {colaborador.favorito ? (
             <AiFillHeart

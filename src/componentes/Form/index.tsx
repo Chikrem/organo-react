@@ -12,6 +12,7 @@ interface FormProps {
     cargo: string;
     imagem: string;
     time: string;
+    data?: string; // Atualizado para string
   }) => void; // Função chamada ao cadastrar um novo colaborador
   aoCriarTime: (time: { nome: string; cor: string }) => void; // Função chamada ao criar um novo time
 }
@@ -23,18 +24,20 @@ const Form: React.FC<FormProps> = ({ aoCadastrar, times, aoCriarTime }) => {
   const [cargo, setCargo] = useState("");
   const [imagem, setImagem] = useState("");
   const [time, setTime] = useState("");
+  const [data, setData] = useState(""); // Atualizado para string
   const [nomeTime, setNomeTime] = useState("");
   const [corTime, setCorTime] = useState("");
 
   // Função chamada ao enviar o formulário de cadastro de colaborador
   const aoSalvar = (evento: FormEvent) => {
     evento.preventDefault();
-    console.log("form enviado", nome, cargo, imagem, time);
+    console.log("form enviado", nome, cargo, imagem, time, data);
     aoCadastrar({
       nome,
       cargo,
       imagem,
       time,
+      data
     });
   };
 
@@ -61,6 +64,13 @@ const Form: React.FC<FormProps> = ({ aoCadastrar, times, aoCriarTime }) => {
           placeholder="Digite o endereço da imagem"
           valor={imagem}
           aoAlterado={(valor) => setImagem(valor)}
+        />
+        <TextField
+          type="date" // Define o tipo como "date"
+          label="Data"
+          placeholder="Digite a data"
+          valor={data}
+          aoAlterado={(valor) => setData(valor)}
         />
         <SusList
           obrigatorio={true}
