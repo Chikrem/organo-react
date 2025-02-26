@@ -1,9 +1,14 @@
-/* eslint-disable react/jsx-key */
-
-/* eslint-disable react/prop-types */
 import './SusList.css'
 
-const SusList = (props) => {
+interface SusListProps {
+  label: string;
+  aoAlterado: (valor: string) => void;
+  obrigatorio: boolean;
+  valor: string;
+  itens: string[];
+}
+
+const SusList = (props: SusListProps) => {
     return(
         <div className='lista-suspensa'>
             <label>{props.label}</label>
