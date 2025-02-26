@@ -4,5 +4,5 @@ export interface Colaborador {
     cargo: string;
     imagem: string;
     favorito: boolean;
-    time: string;
+    time?: string;
   }

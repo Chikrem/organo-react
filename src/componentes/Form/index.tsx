@@ -6,7 +6,12 @@ import { useState, FormEvent } from "react";
 
 interface FormProps {
   times: string[];
-  aoCadastrar: (colaborador: { nome: string; cargo: string; imagem: string; time: string }) => void;
+  aoCadastrar: (colaborador: {
+    nome: string;
+    cargo: string;
+    imagem: string;
+    time: string;
+  }) => void;
   aoCriarTime: (time: { nome: string; cor: string }) => void;
 }
 
@@ -20,12 +25,12 @@ const Form: React.FC<FormProps> = ({ aoCadastrar, times, aoCriarTime }) => {
 
   const aoSalvar = (evento: FormEvent) => {
     evento.preventDefault();
-    console.log('form enviado', nome, cargo, imagem, time);
+    console.log("form enviado", nome, cargo, imagem, time);
     aoCadastrar({
       nome,
       cargo,
       imagem,
-      time
+      time,
     });
   };
 
@@ -59,13 +64,18 @@ const Form: React.FC<FormProps> = ({ aoCadastrar, times, aoCriarTime }) => {
           valor={time}
           aoAlterado={(valor) => setTime(valor)}
         />
-        <Button><span>Criar Card</span></Button>
+        <Button>
+          <span>Criar Card</span>
+        </Button>
       </form>
 
-      <form className="formulario" onSubmit={(evento: FormEvent) => {
-        evento.preventDefault();
-        aoCriarTime({ nome: nomeTime, cor: corTime });
-      }}>
+      <form
+        className="formulario"
+        onSubmit={(evento: FormEvent) => {
+          evento.preventDefault();
+          aoCriarTime({ nome: nomeTime, cor: corTime });
+        }}
+      >
         <h2>Preencha os dados para criar um novo Time</h2>
         <TextField
           obrigatorio
@@ -76,13 +86,15 @@ const Form: React.FC<FormProps> = ({ aoCadastrar, times, aoCriarTime }) => {
         />
         <TextField
           obrigatorio={true}
-          label='Cor'
-          type='color'
-          placeholder='Digite sua cor'
+          label="Cor"
+          type="color"
+          placeholder="Digite sua cor"
           valor={corTime}
-          aoAlterado={valor => setCorTime(valor)}
+          aoAlterado={(valor) => setCorTime(valor)}
         />
-        <Button><span>Criar um novo time</span></Button>
+        <Button>
+          <span>Criar um novo time</span>
+        </Button>
       </form>
     </section>
   );
