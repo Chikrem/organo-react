@@ -1,34 +1,35 @@
-import './TextField.css'
+import React from 'react';
+import './TextField.css';
 
-interface CampoTextoProps {
-    aoAlterado: (valor: string) => void
-    placeholder: string
-    label: string
-    valor: string
-    obrigatorio?: boolean
+interface TextFieldProps {
+  type?: string;
+  label: string;
+  placeholder: string;
+  valor: string;
+  aoAlterado: (valor: string) => void;
+  obrigatorio?: boolean;
 }
 
-const CampoTexto = ({ aoAlterado, label, obrigatorio, placeholder, valor } : CampoTextoProps) => {
+const TextField: React.FC<TextFieldProps> = ({
+  type = "text",
+  label,
+  placeholder,
+  valor,
+  aoAlterado,
+  obrigatorio = false,
+}) => {
+  return (
+    <div className={`campo campo-${type}`}>
+      <label>{label}</label>
+      <input
+        type={type}
+        value={valor}
+        onChange={(evento: React.ChangeEvent<HTMLInputElement>) => aoAlterado(evento.target.value)}
+        required={obrigatorio}
+        placeholder={placeholder}
+      />
+    </div>
+  );
+};
 
-    const placeholderModificada = `${placeholder}...` 
-
-    const aoDigitado = (evento: React.ChangeEvent<HTMLInputElement>) => {
-        aoAlterado(evento.target.value)
-    }
-
-    return (
-        <div className="campo">
-            <label>
-                {label}
-            </label>
-            <input 
-                value={valor} 
-                onChange={aoDigitado} 
-                required={obrigatorio} 
-                placeholder={placeholderModificada}
-            />
-        </div>
-    )
-}
-
-export default CampoTexto
+export default TextField;

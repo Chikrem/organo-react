@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import { AiFillCloseCircle, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import "./Card.css";
+import { CardProps } from "../../compartilhado/ICard";
 
-const Card = ({ colaborador, corDeFundo, aoDeletar, aoFavoritar }) => {
+const Card: React.FC<CardProps> = ({ colaborador, corDeFundo, aoDeletar, aoFavoritar }) => {
 
-  function favoritar(){
+  function favoritar() {
     aoFavoritar(colaborador.id);
   }
 
