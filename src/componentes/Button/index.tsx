@@ -1,7 +1,11 @@
-/* eslint-disable react/prop-types */
+import { ReactElement } from 'react'
 import './Button.css'
 
-const Button = (props) => {
+interface BotaoProps {
+    children: ReactElement
+}
+
+const Button = (props: BotaoProps) => {
     return (
         <button className='botao'>
             {props.children}

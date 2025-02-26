@@ -1,12 +1,24 @@
-/* eslint-disable react/prop-types */
 import "./Form.css";
 import TextField from "./../TextField/index";
 import SusList from "./../SusList/index";
 import Button from "./../Button/index";
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 
-const Form = ({aoCadastrar, times, aoCriarTime}) => {
+// Definição da interface para as props do componente Form
+interface FormProps {
+  times: string[]; // Lista de times disponíveis
+  aoCadastrar: (colaborador: {
+    nome: string;
+    cargo: string;
+    imagem: string;
+    time: string;
+  }) => void; // Função chamada ao cadastrar um novo colaborador
+  aoCriarTime: (time: { nome: string; cor: string }) => void; // Função chamada ao criar um novo time
+}
 
+// Componente funcional Form
+const Form: React.FC<FormProps> = ({ aoCadastrar, times, aoCriarTime }) => {
+  // Estados para armazenar os valores dos campos do formulário
   const [nome, setNome] = useState("");
   const [cargo, setCargo] = useState("");
   const [imagem, setImagem] = useState("");
@@ -14,21 +26,23 @@ const Form = ({aoCadastrar, times, aoCriarTime}) => {
   const [nomeTime, setNomeTime] = useState("");
   const [corTime, setCorTime] = useState("");
 
-  const aoSalvar = (evento) => {
-    evento.preventDefault()
-    console.log('form enviado', nome, cargo, imagem, time )
+  // Função chamada ao enviar o formulário de cadastro de colaborador
+  const aoSalvar = (evento: FormEvent) => {
+    evento.preventDefault();
+    console.log("form enviado", nome, cargo, imagem, time);
     aoCadastrar({
-        nome,
-        cargo,
-        imagem,
-        time
-    })
+      nome,
+      cargo,
+      imagem,
+      time,
+    });
   };
 
   return (
     <section className="formulario-container">
+      {/* Formulário para cadastrar um novo colaborador */}
       <form className="formulario" onSubmit={aoSalvar}>
-        <h2>Preencha os dados do Card </h2>
+        <h2>Preencha os dados do Card</h2>
         <TextField
           obrigatorio={true}
           label="Nome"
@@ -55,13 +69,19 @@ const Form = ({aoCadastrar, times, aoCriarTime}) => {
           valor={time}
           aoAlterado={(valor) => setTime(valor)}
         />
-        <Button>Criar Card</Button>
+        <Button>
+          <span>Criar Card</span>
+        </Button>
       </form>
 
-      <form className="formulario" onSubmit={(evento) => {
-                evento.preventDefault()
-                aoCriarTime({ nome: nomeTime, cor: corTime })
-            }}>
+      {/* Formulário para criar um novo time */}
+      <form
+        className="formulario"
+        onSubmit={(evento: FormEvent) => {
+          evento.preventDefault();
+          aoCriarTime({ nome: nomeTime, cor: corTime });
+        }}
+      >
         <h2>Preencha os dados para criar um novo Time</h2>
         <TextField
           obrigatorio
@@ -72,12 +92,15 @@ const Form = ({aoCadastrar, times, aoCriarTime}) => {
         />
         <TextField
           obrigatorio={true}
-          label='Cor'
-          type='color'
-          placeholder='Digite sua cor'
+          label="Cor"
+          type="color"
+          placeholder="Digite sua cor"
           valor={corTime}
-          aoAlterado={valor => setCorTime(valor)}/>
-        <Button>Criar um novo time</Button>
+          aoAlterado={(valor) => setCorTime(valor)}
+        />
+        <Button>
+          <span>Criar um novo time</span>
+        </Button>
       </form>
     </section>
   );
